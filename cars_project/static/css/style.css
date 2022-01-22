@@ -1,0 +1,16 @@
+.landing-page-articles {
+    max-width: 400px;
+    display: flex;
+}
+
+.landing-page {
+    display: flex;
+}
+
+.landing-page-title {
+    text-align: center;
+}
+
+.landing-page-image {
+    float: right;
+}

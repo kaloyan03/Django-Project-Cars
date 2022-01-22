@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
 
-</body>
-</html>
+
+{% block content %}
+    <section class="login-page">
+        <h2>Login</h2>
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+
+            {{ user_form }}
+            <button>Login</button>
+        </form>
+    </section>
+
+
+{% endblock %}
