@@ -14,3 +14,13 @@
 .landing-page-image {
     float: right;
 }
+
+.login-page-input {
+    max-width: 400px;
+    margin: 50px;
+}
+
+.login-page-input-password {
+    max-width: 400px;
+}
+

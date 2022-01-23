@@ -12,11 +12,17 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
+    # attrs={'class': 'form-control', 'id': 'email'}
     email = forms.EmailField(
-
+        widget=forms.TextInput(
+            attrs={'class': 'login-page-input'}
+        )
     )
 
+    # attrs={'class':'form-control', 'id': 'password'}
     password = forms.CharField(
         max_length=300,
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(
+            attrs={'class': 'login-page-input'}
+        )
     )

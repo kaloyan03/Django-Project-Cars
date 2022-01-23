@@ -7,7 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="{% url 'landing page' %}">Home</a>
-        <a class="nav-link" href="#">Cars</a>
+        <a class="nav-link" href="{% url 'list cars' %}">Cars</a>
+        <a class="nav-link" href="{% url 'add car' %}">Add Car</a>
           {% if not request.user.is_authenticated %}
           <a class="nav-link" href="{% url 'register' %}">Register</a>
         <a class="nav-link" href="{% url 'login' %}">Login</a>

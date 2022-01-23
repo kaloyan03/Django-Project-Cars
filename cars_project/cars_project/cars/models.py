@@ -3,23 +3,23 @@ from django.db import models
 # Create your models here.
 class Car(models.Model):
     vehicle_choices = (
-        ('Car', 'car'),
-        ('Motorcycle', 'motorcycle'),
-        ('Motorhomes & Caravanas', 'motorhomes_or_caravanas'),
-        ('Trucks', 'trucks'),
+        ('car', 'Car'),
+        ('motorcycle', 'Motorcycle'),
+        ('motorhomes_or_caravanas', 'Motorhomes & Caravanas'),
+        ('trucks', 'Trucks'),
     )
 
     fuel_choices = (
-        ('Petrol', 'petrol'),
-        ('Diesel', 'diesel'),
-        ('Electric', 'electric'),
-        ('Other', 'other'),
+        ('petrol', 'Petrol'),
+        ('diesel', 'Diesel'),
+        ('electric', 'Electric'),
+        ('other', 'Other'),
     )
 
     transmission_choices = (
-        ('Automatic transmission', 'automatic'),
-        ('Manual gearbox', 'manual'),
-        ('Semi-automatic', 'semi-automatic'),
+        ('automatic', 'Automatic transmission'),
+        ('manual_gearbox', 'Manual'),
+        ('semi-automatic', 'Semi-automatic'),
 
     )
 
@@ -49,5 +49,10 @@ class Car(models.Model):
 
     mileage = models.IntegerField(
         default=0
+    )
+
+    image = models.ImageField(
+        upload_to='car_photos',
+        null=True,
     )
 

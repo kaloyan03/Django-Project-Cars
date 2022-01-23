@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
 
-</body>
-</html>
+{% block content %}
+    {% if cars %}
+        {% for car in cars %}
+            <div class="card" style="width: 18rem;">
+  <img src="{{ car.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+    <p class="card-text">Fuel type: {{ car.fuel_type }}</p>
+    <p class="card-text">Transmission: {{ car.transmission_type }}</p>
+    <p class="card-text">Mileage: {{ car.mileage }}</p>
+    <p class="card-text">Vehicle: {{ car.vehicle_type }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+        {% endfor %}
+        {% else %}
+    {% endif %}
+
+{% endblock %}
