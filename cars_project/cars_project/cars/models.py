@@ -1,25 +1,29 @@
+from django.contrib.auth import get_user_model
 from django.db import models
+
+
+UserModel = get_user_model()
 
 # Create your models here.
 class Car(models.Model):
     vehicle_choices = (
-        ('car', 'Car'),
-        ('motorcycle', 'Motorcycle'),
-        ('motorhomes_or_caravanas', 'Motorhomes & Caravanas'),
-        ('trucks', 'Trucks'),
+        ('Car', 'Car'),
+        ('Motorcycle', 'Motorcycle'),
+        ('Motorhomes Or caravanas', 'Motorhomes & Caravanas'),
+        ('Trucks', 'Trucks'),
     )
 
     fuel_choices = (
-        ('petrol', 'Petrol'),
-        ('diesel', 'Diesel'),
-        ('electric', 'Electric'),
-        ('other', 'Other'),
+        ('Petrol', 'Petrol'),
+        ('Diesel', 'Diesel'),
+        ('Electric', 'Electric'),
+        ('Other', 'Other'),
     )
 
     transmission_choices = (
-        ('automatic', 'Automatic transmission'),
-        ('manual_gearbox', 'Manual'),
-        ('semi-automatic', 'Semi-automatic'),
+        ('Automatic', 'Automatic transmission'),
+        ('Manual_gearbox', 'Manual'),
+        ('Semi-automatic', 'Semi-automatic'),
 
     )
 
@@ -47,6 +51,10 @@ class Car(models.Model):
         choices=transmission_choices,
     )
 
+    price = models.IntegerField(
+        default=0
+    )
+
     mileage = models.IntegerField(
         default=0
     )
@@ -54,5 +62,11 @@ class Car(models.Model):
     image = models.ImageField(
         upload_to='car_photos',
         null=True,
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+        default=5,
     )
 

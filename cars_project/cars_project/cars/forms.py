@@ -8,5 +8,4 @@ class AddCarForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Car
         fields = '__all__'
-        widgets = {
-        }
+        exclude = ['user']

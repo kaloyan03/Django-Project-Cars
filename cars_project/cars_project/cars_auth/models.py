@@ -65,7 +65,7 @@ class CarsUser(AbstractBaseUser, PermissionsMixin):
 
     profile_photo = models.ImageField(
         upload_to='profile_photos',
-        default='default.jpg',
+        default='static/images/default.jpg',
     )
 
     is_staff = models.BooleanField(

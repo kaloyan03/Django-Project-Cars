@@ -1,0 +1,50 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <section class="user-profile-page">
+
+        <div class="text-center">
+            <h1>Hello, {{ request.user }}!</h1>
+            <h5>This is your profile</h5>
+            <img class="rounded-circle mb-3" src="{{ profile.profile_photo.url }}" alt="Generic placeholder image"
+                 width="140" height="140">
+            <div class="w-50 m-auto">
+                <form method="post" enctype="multipart/form-data"
+                      action="{% url 'change profile photo' request.user.id %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        {% if cars %}
+            <h2 class='text-center'>These are your cars for sell</h2>
+            <div class="row">
+                <div class="row">
+                    {% for car in cars %}
+                        <div class="col-lg-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ car.image.url }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
+                                    <p class="card-text">Mileage: {{ car.mileage }}</p>
+                                    <p class="card-text">Vehicle: {{ car.vehicle_type }}</p>
+                                    <p class="card-text">Price: {{ car.price }}</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>You have no cars to sell</h2>
+                <a href="{% url 'add car' %}" class="btn btn-success">Add Car For Sell</a>
+            </div>
+        {% endif %}
+
+    </section>
+
+{% endblock %}

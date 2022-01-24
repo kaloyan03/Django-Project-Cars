@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cars/', include('cars_project.cars.urls')),
     path('auth/', include('cars_project.cars_auth.urls')),
+    path('profile/', include('cars_project.profiles.urls')),
     path('', include('cars_project.landing_page.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,11 +7,11 @@ from cars_project.cars.models import Car
 
 def add_car(request):
     if request.method == 'POST':
-        form = AddCarForm(request.POST)
+        form = AddCarForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            return redirect('landing page')
+            return redirect('list cars')
     else:
         form = AddCarForm()
 

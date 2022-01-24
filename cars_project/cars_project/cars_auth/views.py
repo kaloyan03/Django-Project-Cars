@@ -12,7 +12,7 @@ def cars_logout(request):
 
 def cars_register(request):
     if request.method == 'POST':
-        user_form = RegisterForm(request.POST)
+        user_form = RegisterForm(request.POST, request.FILES)
 
         if user_form.is_valid():
             email = user_form.cleaned_data['email']
