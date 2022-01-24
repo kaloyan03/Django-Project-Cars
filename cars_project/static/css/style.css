@@ -15,12 +15,49 @@
     float: right;
 }
 
-.login-page-input {
-    max-width: 400px;
-    margin: 50px;
+.login-page {
+    margin-top: 60px;
 }
 
-.login-page-input-password {
-    max-width: 400px;
+.login-page-form {
+    margin-top: 50px;
+    border: 1px solid grey;
+    padding: 5%;
 }
 
+.login-page-form-title {
+    text-align: center;
+}
+
+.register-page {
+    margin-top: 60px;
+}
+
+.register-page-title {
+    text-align: center;
+}
+
+.register-page-form {
+    margin-top: 50px;
+    border: 1px solid grey;
+    padding: 5%;
+}
+
+.logout {
+    position: absolute;
+    right: 20px;
+}
+
+.add-car-page-form {
+    margin-top: 50px;
+    border: 1px solid grey;
+    padding: 5%;
+}
+
+.add-car-page {
+    margin-top: 60px;
+}
+
+.add-car-page-title {
+    text-align: center;
+}
