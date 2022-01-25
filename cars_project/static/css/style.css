@@ -73,3 +73,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.car-details-page-image {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.car-details-page {
+    text-align: center;
+}
+
+/*.car-details-page h1,h2,h3,h4, h5 {*/
+/*}*/
+/*.car-details-page-content {*/
+
+/*}*/

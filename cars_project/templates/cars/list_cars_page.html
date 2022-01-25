@@ -10,7 +10,7 @@
     <p class="card-text">Mileage: {{ car.mileage }}</p>
     <p class="card-text">Vehicle: {{ car.vehicle_type }}</p>
     <p class="card-text">Price: {{ car.price }}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="{% url 'car details' car.id %}" class="btn btn-primary">See more details</a>
   </div>
 </div>
         {% endfor %}

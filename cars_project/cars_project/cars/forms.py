@@ -9,3 +9,10 @@ class AddCarForm(BootstrapFormMixin, forms.ModelForm):
         model = Car
         fields = '__all__'
         exclude = ['user']
+
+
+class EditCarForm(BootstrapFormMixin, forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = '__all__'
+        exclude = ['user', 'transmission_type', 'fuel_type', 'vehicle_type']

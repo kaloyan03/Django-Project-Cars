@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+    <section class="add-car-page">
+        <form method="post" enctype="multipart/form-data" class="w-50 m-auto add-car-page-form" action="{% url 'car edit' car.id %}">
+            <h2 class="add-car-page-title">Edit Car</h2>
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-primary">Edit Car</button>
+        </form>
+    </section>
+
+{% endblock %}
