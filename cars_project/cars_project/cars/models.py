@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -70,3 +71,17 @@ class Car(models.Model):
         default=5,
     )
 
+
+class Comment(models.Model):
+    message = models.TextField()
+    car = models.ForeignKey(
+        Car,
+        on_delete=models.CASCADE,
+        default=5,
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+        default=5,
+    )

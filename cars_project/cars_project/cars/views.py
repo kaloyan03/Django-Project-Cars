@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from cars_project.cars.forms import AddCarForm, EditCarForm
-from cars_project.cars.models import Car
+from cars_project.cars.forms import AddCarForm, EditCarForm, CommentForm
+from cars_project.cars.models import Car, Comment
 
 
 def add_car(request):
@@ -10,7 +10,9 @@ def add_car(request):
         form = AddCarForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            car = form.save(commit=False)
+            car.user = request.user
+            car.save()
             return redirect('list cars')
     else:
         form = AddCarForm()
@@ -32,13 +34,30 @@ def list_cars(request):
 
 def car_details(request, pk):
     car = Car.objects.get(pk=pk)
-    is_owner = request.user.id == car.user.id
-    context = {
-        'car': car,
-        'is_owner': is_owner,
-    }
 
-    return render(request, 'cars/car_details.html', context)
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            message = comment_form.cleaned_data['message']
+            comment = Comment(message=message, user=request.user, car=car)
+            comment.save()
+            return redirect('car details', car.id)
+
+
+
+    else:
+        comment_form = CommentForm()
+        comments = Comment.objects.filter(car_id=car.id)
+        is_owner = request.user.id == car.user.id
+        context = {
+            'car': car,
+            'is_owner': is_owner,
+            'comment_form': comment_form,
+            "comments": comments,
+        }
+
+        return render(request, 'cars/car_details.html', context)
 
 
 def edit_car(request, pk):
