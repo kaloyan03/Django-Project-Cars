@@ -7,4 +7,5 @@ urlpatterns = (
     path('<int:pk>/', views.car_details, name='car details'),
     path('edit_car/<int:pk>/', views.edit_car, name='car edit'),
     path('delete_car/<int:pk>/', views.delete_car, name='car delete'),
+    path('like/<int:pk>/', views.like_car, name='like car'),
 )

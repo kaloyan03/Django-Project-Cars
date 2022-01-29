@@ -85,3 +85,14 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         default=5,
     )
+
+
+class Like(models.Model):
+    car = models.ForeignKey(
+        Car,
+        on_delete=models.CASCADE,
+    )
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+    )

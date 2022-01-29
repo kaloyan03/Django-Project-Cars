@@ -18,15 +18,20 @@
                 {% if is_owner %}
                     <a href="{% url 'car edit' car.id %}" class="btn btn-success">Edit</a>
                     <a href="{% url 'car delete' car.id %}" class="btn btn-danger">Delete</a>
-{#                {% else %}#}
+                {% else %}
 {#                   {% if already_liked %}#}
 {#                        <a href="{% url 'like pet' pet.id %}" class="disabled" role="button" aria-disabled="true"><i class="fa fa-heart-o" style='color:black;' aria-hidden="true" disabled></i></a>#}
 {#                       {% else %}#}
-{#                        <a href="{% url 'like pet' pet.id %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>#}
+
+                    {% if not already_liked %}
+                        <a href="{% url 'like car' car.id %}"><i class="fas fa-thumbs-up"></i></a>
 {#                    {% endif %}#}
+                        {% else %}
+                        <a href="{% url 'like car' car.id %}"><i class="fas fa-thumbs-down"></i></a>
+                        {% endif %}
                 {% endif %}
 
-{#                <p class="mt-2">Likes: {{ pet_likes_count }}</p>#}
+                <p class="mt-2">Likes: {{ car_likes_count }}</p>
             </div>
         </div>
 

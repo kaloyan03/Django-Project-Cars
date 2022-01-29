@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from cars_project.cars.forms import AddCarForm, EditCarForm, CommentForm
-from cars_project.cars.models import Car, Comment
+from cars_project.cars.models import Car, Comment, Like
 
 
 def add_car(request):
@@ -50,11 +50,16 @@ def car_details(request, pk):
         comment_form = CommentForm()
         comments = Comment.objects.filter(car_id=car.id)
         is_owner = request.user.id == car.user.id
+        car_likes_count = car.like_set.count()
+        already_liked = bool(Like.objects.filter(user=request.user))
+
         context = {
             'car': car,
             'is_owner': is_owner,
             'comment_form': comment_form,
             "comments": comments,
+            "car_likes_count": car_likes_count,
+            'already_liked': already_liked,
         }
 
         return render(request, 'cars/car_details.html', context)
@@ -94,3 +99,20 @@ def delete_car(request, pk):
 
     return render(request, 'cars/delete_car_page.html', context)
 
+
+def like_car(request, pk):
+    car = Car.objects.get(pk=pk)
+
+    like_object_by_user = Like.objects.filter(user=request.user)
+
+    if like_object_by_user:
+        like_object_by_user.delete()
+    else:
+        like = Like(
+            car=car,
+            user=request.user,
+        )
+
+        like.save()
+
+    return redirect('car details', car.id)
