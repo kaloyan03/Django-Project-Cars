@@ -83,8 +83,43 @@
     text-align: center;
 }
 
+.page {
+    margin-top: 60px;
+}
+
+.form {
+    margin-top: 50px;
+    border: 1px solid grey;
+    padding: 5%;
+
+}
+
+.title {
+    text-align: center;
+}
+
 /*.car-details-page h1,h2,h3,h4, h5 {*/
 /*}*/
 /*.car-details-page-content {*/
 
 /*}*/
+
+.notification-box {
+    background-color: lightgreen;
+    font-size: 1.5em;
+    border-radius: 15px;
+    display: none;
+    width: 500px;
+    margin: 0 auto;
+
+}
+
+.notification-message {
+    display: inline-block;
+    padding: 0.5em 2em 0.5em 2em;
+    text-align: center;
+}
+
+.rent-cart-photo {
+    max-width: 250px;
+}

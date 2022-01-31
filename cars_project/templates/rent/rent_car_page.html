@@ -1,0 +1,25 @@
+{% extends 'common/base.html' %}
+
+{% load static %}
+
+{% block js %}
+{#    <script src="{% static 'js/app.js' %}" type="module"></script>#}
+{% endblock %}
+
+{% block content %}
+
+    <div class="notification-box">
+        <span class="notification-message">Successfully added to your rent cart!</span>
+    </div>
+
+    <section class="rent_car page">
+        <h2 class="rent-car title">Rent {{ car.make }} {{ car.model }}</h2>
+
+        <form method="post" class="w-50 m-auto rent-car form" action="{% url 'rent car' car.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+
+            <button type="submit" class="btn btn-primary rent-btn">Rent</button>
+        </form>
+    </section>
+{% endblock %}

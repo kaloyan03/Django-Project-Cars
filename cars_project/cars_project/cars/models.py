@@ -65,6 +65,14 @@ class Car(models.Model):
         null=True,
     )
 
+    date_start_rent = models.DateField(
+        null=True,
+    )
+
+    date_end_rent = models.DateField(
+        null=True,
+    )
+
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,

@@ -29,6 +29,9 @@
                         {% else %}
                         <a href="{% url 'like car' car.id %}"><i class="fas fa-thumbs-down"></i></a>
                         {% endif %}
+
+                        <a href="{% url 'rent car' car.id %}">Rent This Car</a>
+
                 {% endif %}
 
                 <p class="mt-2">Likes: {{ car_likes_count }}</p>

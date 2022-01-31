@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from cars_project.cars.forms import AddCarForm, EditCarForm, CommentForm
 from cars_project.cars.models import Car, Comment, Like
+from cars_project.cars_rent_car.forms import RentCarForm
 
 
 def add_car(request):
@@ -52,6 +53,7 @@ def car_details(request, pk):
         is_owner = request.user.id == car.user.id
         car_likes_count = car.like_set.count()
         already_liked = bool(Like.objects.filter(user=request.user))
+        car_rent_form = RentCarForm()
 
         context = {
             'car': car,
@@ -60,6 +62,7 @@ def car_details(request, pk):
             "comments": comments,
             "car_likes_count": car_likes_count,
             'already_liked': already_liked,
+            'car_rent_form': car_rent_form,
         }
 
         return render(request, 'cars/car_details.html', context)

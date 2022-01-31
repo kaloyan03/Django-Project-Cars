@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     'cars_project.cars',
     'cars_project.cars_auth',
+    'cars_project.landing_page',
+    'cars_project.cars_rent_car',
+    'mathfilters',
     'crispy_forms',
 ]
 

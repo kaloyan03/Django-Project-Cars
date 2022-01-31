@@ -1,0 +1,31 @@
+{% extends 'common/base.html' %}
+
+{% load mathfilters %}
+
+{% block content %}
+    <section class="cars_rent_cart_page">
+        <h2></h2>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Car</th>
+                <th scope="col">Price</th>
+                <th scope="col">Rent For</th>
+            </tr>
+            </thead>
+            <tbody>
+           {% for rent in current_user_rent %}
+                <tr>
+                    <td><img alt='car photo' class='rent-cart-photo' src="{{ rent.car.image.url }}"></td>
+                <td>{{ rent.car.make }} {{ rent.car.model }}</td>
+                <td>{{ rent.car.price }}$</td>
+                <td>{{ rent.date_end_rent|sub:rent.date_start_rent }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
