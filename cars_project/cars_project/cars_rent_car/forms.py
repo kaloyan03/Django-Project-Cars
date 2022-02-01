@@ -16,3 +16,8 @@ class RentCarForm(BootstrapFormMixin, forms.ModelForm):
             'date_start_rent': DateInput(),
             'date_end_rent': DateInput(),
         }
+
+
+class SendEmailForm(forms.Form):
+    email = forms.EmailField()
+

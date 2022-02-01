@@ -20,8 +20,9 @@ class RentCar(models.Model):
         on_delete=models.CASCADE,
     )
 
-
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,
     )
+
+

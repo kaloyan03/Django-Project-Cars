@@ -123,3 +123,41 @@
 .rent-cart-photo {
     max-width: 250px;
 }
+
+.cars-rent-cart-page .table {
+    max-width: 1100px;
+    margin-left: 100px;
+
+}
+
+.cars-rent-cart-page {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cars-rent-cart-page .checkout-article {
+    margin-left: 100px;
+    margin-top: 200px;
+    border: 1px solid black;
+    width: 450px;
+    padding-top: 40px;
+    height: 300px;
+}
+
+.cars-rent-cart-page .checkout-article-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.cars-rent-cart-page .checkout-article form {
+    text-align: center;
+}
+
+.cars-rent-cart-page .checkout-article .send-email-button {
+        display: block;
+    width: 75px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
