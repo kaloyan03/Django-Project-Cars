@@ -2,21 +2,35 @@
     font-family: helvetica , sans-serif;
 }
 
+.landing-page-article-about-us {
+    display: inline-block;
+    width: 400px;
+}
+
+.landing-page-article-our-mission {
+    display: inline-block;
+    width: 400px;
+}
+
 .landing-page-articles {
-    max-width: 400px;
-    display: flex;
+    margin-left: 300px;
+    display: inline-block;
 }
 
 .landing-page {
-    display: flex;
+    display: inline-block;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .landing-page-title {
     text-align: center;
+    font-size: 40px;
 }
 
 .landing-page-image {
     float: right;
+    margin-right: 100px;
 }
 
 .login-page {
@@ -159,5 +173,24 @@
     width: 75px;
     margin: 0 auto;
     margin-top: 25px;
+}
+
+
+.cars-rent-cart-page .empty-cart-title {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 300px;
+    font-size: 50px;
+
+}
+
+.car-card {
+    margin-right: 75px;
+}
+
+.list-cars-page .cards{
+    display: inline-flex;
+    justify-content: center;
+    margin: 75px;
 }
 

@@ -1,9 +1,11 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
+   <section class="list-cars-page">
     {% if cars %}
+        <div class="cards">
         {% for car in cars %}
-            <div class="card" style="width: 18rem;">
+            <div class="card car-card" style="width: 18rem;">
   <img src="{{ car.image.url }}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
@@ -14,9 +16,12 @@
   </div>
 </div>
         {% endfor %}
+        </div>
+
         {% else %}
 
             <h2 class="list-cars-page-no-car-content">There no cars for rent right now!</h2>
     {% endif %}
 
+   </section>
 {% endblock %}
