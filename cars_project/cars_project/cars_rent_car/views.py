@@ -39,7 +39,7 @@ def rent_cart(request):
     current_user_rent = RentCar.objects.filter(user=user).annotate(
         rent_for=F('date_end_rent') - F('date_start_rent'))
 
-    total_price = sum([r.car.price for r in current_user_rent])
+    total_price = sum([r.car.price_per_day * r.rent_for.days for r in current_user_rent])
     if request.method == 'POST':
         send_email_form = SendEmailForm(request.POST)
 
@@ -48,7 +48,9 @@ def rent_cart(request):
                 rent.delete()
 
             subject = 'Thanks for your order'
-            message = 'There is total price for your order: 1000$'
+            message = '\n'.join([f'{r.car.make} {r.car.model} for {r.rent_for.days} days with price {r.car.price_per_day * r.rent_for.days}$' for r in current_user_rent])
+            message += '\n'
+            message += f'There is total price for your order: {total_price}$.'
             recipient = send_email_form.cleaned_data['email']
             send_mail(subject, message, EMAIL_HOST_USER, [recipient], fail_silently=False)
             return redirect('rent cart')

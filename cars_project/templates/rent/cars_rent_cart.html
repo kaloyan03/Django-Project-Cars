@@ -25,7 +25,7 @@
                 <tr>
                     <td><img alt='car photo' class='rent-cart-photo' src="{{ rent.car.image.url }}"></td>
                     <td>{{ rent.car.make }} {{ rent.car.model }}</td>
-                    <td>{{ rent.car.price }}$</td>
+                    <td>{% widthratio rent.car.price_per_day 1 rent.rent_for.days %}$</td>
                     {#                <td>{{ rent.date_end_rent|sub:rent.date_start_rent.day }}</td>#}
                     <td>{{ rent.rent_for.days }} days</td>
                     <td></td>

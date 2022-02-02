@@ -9,7 +9,7 @@
     <h5 class="card-title">{{ car.make }} {{ car.model }}</h5>
     <p class="card-text">Mileage: {{ car.mileage }}</p>
     <p class="card-text">Vehicle: {{ car.vehicle_type }}</p>
-    <p class="card-text">Price: {{ car.price }}</p>
+    <p class="card-text">Price per day: {{ car.price_per_day }}$</p>
     <a href="{% url 'car details' car.id %}" class="btn btn-primary">See more details</a>
   </div>
 </div>

@@ -52,7 +52,7 @@ class Car(models.Model):
         choices=transmission_choices,
     )
 
-    price = models.IntegerField(
+    price_per_day = models.IntegerField(
         default=0
     )
 
@@ -62,14 +62,6 @@ class Car(models.Model):
 
     image = models.ImageField(
         upload_to='car_photos',
-        null=True,
-    )
-
-    date_start_rent = models.DateField(
-        null=True,
-    )
-
-    date_end_rent = models.DateField(
         null=True,
     )
 
